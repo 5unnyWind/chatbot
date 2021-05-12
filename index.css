@@ -1,111 +1,115 @@
-
-.chatbotWrap{
+.chatbotWrap {
   width: 350px;
   height: 650px;
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #EAEEF3;
+  background-color: #eaeef3;
   border-radius: 10px;
-  transition: all .4s;
-  box-shadow:0 4px 16px rgb(0 0 0 / 25%);
+  transition: all 0.4s;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 25%);
   display: flex;
   flex-direction: column;
 }
 
 /* 未展开状态 */
-.chatFold{
+.chatFold {
   width: 100px;
   height: 100px;
   border-radius: 10px;
-  background-color:#045FFE ;
+  background-color: #045ffe;
   position: fixed;
   bottom: 20px;
   right: 20px;
-  
 }
-.chatFold div{
+.chatFold div {
   display: none;
 }
 
-
 /* 顶部 */
-.chatbotHead{
+.chatbotHead {
   width: 350px;
   height: 100px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-.chatbotHead h2{
+.chatbotHead h2 {
   line-height: 80px;
   text-align: center;
 }
-.closeChatBot{
+.closeChatBot {
   position: absolute;
   top: 10px;
   right: 10px;
   border: none;
   background-color: #fff;
   outline: none;
-  transform: scale(1.5,1.2);
+  transform: scale(1.5, 1.2);
   cursor: pointer;
 }
 
-
-
 /* 中部 */
-.chatbotBody{
+.chatbotBody {
   width: 350px;
   height: 500px;
-  background-color: #EAEEF3;
+  background-color: #eaeef3;
   display: flex;
   flex-direction: column;
   scroll-behavior: smooth;
   overflow: auto;
 }
-.chatbotBody .botResponse{
-  height: 50px;
-  line-height: 50px;
+
+.chatbotBody .botResponse {
+  /* height: 50px; */
+  width: fit-content;
+  height: fit-content;
+  line-height: 30px;
   border-radius: 20px 20px 20px 0px;
   margin: 16px;
-  padding: 0 16px;
+  padding: 8px 16px;
   background-color: #fff;
-  width:fit-content;
+  width: fit-content;
 }
-.chatbotBody .userAsk{
-  width:fit-content;
+
+.chatbotBody .userAsk {
+  width: fit-content;
+  height: fit-content;
   align-self: flex-end;
-  height: 50px;
-  line-height: 50px;
+  line-height: 30px;
   border-radius: 20px 20px 0px 20px;
   margin: 16px;
-  padding: 0 16px;
+  padding: 8px 16px;
   color: #fff;
-  background-color: #0044E9;
+  background-color: #0044e9;
 }
 
 /* 底部 */
-.chatbotFoot{
+.chatbotFoot {
   width: 350px;
   height: 50px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   display: flex;
   justify-content: space-between;
 }
-.chatbotFoot input{
+
+.chatbotFoot input {
   outline: none;
   border: none;
-  width: 80%;
-
+  width: 75%;
 }
-.chatbotFoot button{
+
+.chatbotFoot .send {
+  width: 25%;
+}
+
+.chatbotFoot button {
   border-bottom-right-radius: 10px;
   border: none;
   outline: none;
-  background-color: #0044E9;
+  background-color: #0044e9;
   color: #fff;
   justify-self: flex-end;
   cursor: pointer;
