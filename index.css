@@ -10,6 +10,7 @@
   box-shadow: 0 4px 16px rgb(0 0 0 / 25%);
   display: flex;
   flex-direction: column;
+  cursor: ;
 }
 
 /* 未展开状态 */
@@ -22,6 +23,7 @@
   bottom: 20px;
   right: 20px;
 }
+
 .chatFold div {
   display: none;
 }
@@ -34,10 +36,12 @@
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
+
 .chatbotHead h2 {
   line-height: 80px;
   text-align: center;
 }
+
 .closeChatBot {
   position: absolute;
   top: 10px;
@@ -99,6 +103,7 @@
   outline: none;
   border: none;
   width: 75%;
+  border-bottom-left-radius: 10px;
 }
 
 .chatbotFoot .send {
