@@ -75,11 +75,14 @@ function sendMsg() {
       const question = result.data.data[0].question;
       const allData = result.data.data
       if (answer.trim() === '') {
-        chatbotBody.innerHTML += '<div class="botResponse">' +
-          '这个问题智能小助手还无法回答哦，可以添加群艾特管理员提问~ 资助系统答疑群号 ' +
-          '<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=pvxuiMdtRaCsE4ZDNN5t15NhTQzmOqVo&jump_from=webapi">892402887' +
-          '<img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="资助答疑群-chatbot" title="资助答疑群-chatbot"></a>' +
-          '</div>';
+        chatbotBody.innerHTML += 
+        '<div class="botResponse">' +
+        '这个问题智能小助手还无法回答哦，可以在'+
+        '<a target="_blank" href="https://docs.qq.com/form/page/DQXZVUXZJcFdPalVI?_w_tencentdocx_form=1">这里(【腾讯文档】资助机器人问答反馈)<a/>'+
+        '反馈你的问题,稍后会有工作人员解答,也可以加入我们的资助系统答疑.'+
+        '<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=pvxuiMdtRaCsE4ZDNN5t15NhTQzmOqVo&jump_from=webapi">892402887' +
+        '<img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="资助答疑群-chatbot" title="资助答疑群-chatbot"></a>' +
+        '</div>';
         chatbotBody.scrollTop = chatbotBody.scrollHeight;
         return false;
       }
@@ -129,8 +132,11 @@ function askOtherFn(allData) {
       '</div>';
     chatbotBody.scrollTop = chatbotBody.scrollHeight;
   }
-  chatbotBody.innerHTML += '<div class="botResponse">' +
-    '如果没有找到你想要的答案，可以添加群艾特管理员提问~ 资助系统答疑群号 ' +
+  chatbotBody.innerHTML += 
+    '<div class="botResponse">' +
+    '这个问题智能小助手还无法回答哦，可以在'+
+    '<a target="_blank" href="https://docs.qq.com/form/page/DQXZVUXZJcFdPalVI?_w_tencentdocx_form=1">这里(【腾讯文档】资助机器人问答反馈)<a/>'+
+    '反馈你的问题,稍后会有工作人员解答,也可以加入我们的资助系统答疑.'+
     '<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=pvxuiMdtRaCsE4ZDNN5t15NhTQzmOqVo&jump_from=webapi">892402887' +
     '<img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="资助答疑群-chatbot" title="资助答疑群-chatbot"></a>' +
     '</div>';
