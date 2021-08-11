@@ -25,24 +25,59 @@ function onCloseChatbot() {
 const sendBtn = document.querySelector(".chatbotFoot .send");
 const input = document.querySelector(".chatbotFoot .userInput");
 const chatbotBody = document.querySelector(".chatbotBody");
-sendBtn.addEventListener("click", sendMsg);
+let msg = ''
+input.onkeyup=()=>{
+  msg = input.value;
+  console.log(msg)
+}
+sendBtn.addEventListener("click", ()=>{sendMsg(msg);msg=''});
 input.addEventListener("keyup", (e) => {
   e.preventDefault();
   if (e.keyCode === 13) {
-    sendMsg();
+    sendMsg(msg);
+    msg=''
   }
 });
 
+// 点击初始关键词
+const k1 = document.querySelector('#k1')
+const k2 = document.querySelector('#k2')
+const k3 = document.querySelector('#k3')
+const k4 = document.querySelector('#k4')
+// k1.onclick=()=>{sendMsg(k1.innerHTML);console.log(1)}
+k1.addEventListener('click',()=>{sendMsg(k1.innerHTML);console.log(1)})
+k2.onclick=()=>{sendMsg(k2.innerHTML)}
+k3.onclick=()=>{sendMsg(k3.innerHTML)}
+k4.onclick=()=>{sendMsg(k4.innerHTML)}
 
 
+// 聊天气泡
+class Bubble {
+  msg = ''
+  class = ''
+  constructor(m='', c=userAsk) {
+    this.msg = m
+    this.class = c
+    console.log(msg)
+    this.add()
+  }
+  add() {
+    const bubble = document.createElement('div')
+    bubble.classList.add(this.class)
+    bubble.innerHTML = this.msg
+    chatbotBody.appendChild(bubble)
+  }
+}
 
 
-function sendMsg() {
-  const msg = input.value;
+function sendMsg(msg) {
   if (msg.trim() === "") {
     return false;
   }
-  chatbotBody.innerHTML += '<div class="userAsk">' + msg + '</div>';
+  console.log(msg)
+  new Bubble(msg,'userAsk')
+  //用innerHtml加元素会导致页面重载，之前绑定的事件会丢失，要重新获取并绑定
+  // chatbotBody.innerHTML += '<div class="userAsk">' + msg + '</div>';
   chatbotBody.scrollTop = chatbotBody.scrollHeight;
 
   // 旧接口
@@ -75,29 +110,52 @@ function sendMsg() {
       const question = result.data.data[0].question;
       const allData = result.data.data
       if (answer.trim() === '') {
-        chatbotBody.innerHTML += 
-        '<div class="botResponse">' +
-        '这个问题智能小助手还无法回答哦，可以在'+
-        '<a target="_blank" href="https://docs.qq.com/form/page/DQXZVUXZJcFdPalVI?_w_tencentdocx_form=1">这里(【腾讯文档】资助机器人问答反馈)<a/>'+
-        '反馈你的问题,稍后会有工作人员解答,也可以加入我们的资助系统答疑.'+
-        '<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=pvxuiMdtRaCsE4ZDNN5t15NhTQzmOqVo&jump_from=webapi">892402887' +
-        '<img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="资助答疑群-chatbot" title="资助答疑群-chatbot"></a>' +
-        '</div>';
+        new Bubble(
+          '这个问题智能小助手还无法回答哦，可以在'+
+          '<a target="_blank" href="https://docs.qq.com/form/page/DQXZVUXZJcFdPalVI?_w_tencentdocx_form=1">这里(【腾讯文档】资助机器人问答反馈)<a/>'+
+          '反馈你的问题,稍后会有工作人员解答,也可以加入我们的资助系统答疑.'+
+          '<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=pvxuiMdtRaCsE4ZDNN5t15NhTQzmOqVo&jump_from=webapi">892402887' +
+          '<img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="资助答疑群-chatbot" title="资助答疑群-chatbot"></a>' ,
+          'botResponse'
+        )
+        
+        // chatbotBody.innerHTML += 
+        // '<div class="botResponse">' +
+        // '这个问题智能小助手还无法回答哦，可以在'+
+        // '<a target="_blank" href="https://docs.qq.com/form/page/DQXZVUXZJcFdPalVI?_w_tencentdocx_form=1">这里(【腾讯文档】资助机器人问答反馈)<a/>'+
+        // '反馈你的问题,稍后会有工作人员解答,也可以加入我们的资助系统答疑.'+
+        // '<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=pvxuiMdtRaCsE4ZDNN5t15NhTQzmOqVo&jump_from=webapi">892402887' +
+        // '<img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="资助答疑群-chatbot" title="资助答疑群-chatbot"></a>' +
+        // '</div>';
         chatbotBody.scrollTop = chatbotBody.scrollHeight;
         return false;
       }
 
       if (msg === question) {
-        chatbotBody.innerHTML +=
+        new Bubble(
           '<div class="botResponse">' +
           answer +
-          '<br/><a class="askOther" style="color: cornflowerblue;text-decoration: underline;cursor: pointer;">我想问其他</a></div>';
+          '<br/><a class="askOther" style="color: cornflowerblue;text-decoration: underline;cursor: pointer;">我想问其他</a>',
+          'botResponse'
+        )
+        // chatbotBody.innerHTML +=
+        //   '<div class="botResponse">' +
+        //   answer +
+        //   '<br/><a class="askOther" style="color: cornflowerblue;text-decoration: underline;cursor: pointer;">我想问其他</a>'+
+        //   '</div>';
         chatbotBody.scrollTop = chatbotBody.scrollHeight;
       } else {
-        chatbotBody.innerHTML +=
-          '<div class="botResponse">' +
+        new Bubble(
           '你是否想问：\"' + question + '\"?<br/>' + answer +
-          '<br/><a class="askOther" style="color: cornflowerblue;text-decoration: underline;cursor: pointer;">我想问其他</a></div>';
+          '<br/><a class="askOther" style="color: cornflowerblue;text-decoration: underline;cursor: pointer;">我想问其他</a>',
+          'botResponse'
+        )
+
+        // chatbotBody.innerHTML +=
+        //   '<div class="botResponse">' +
+        //   '你是否想问：\"' + question + '\"?<br/>' + answer +
+        //   '<br/><a class="askOther" style="color: cornflowerblue;text-decoration: underline;cursor: pointer;">我想问其他</a>'+
+        //   '</div>';
         chatbotBody.scrollTop = chatbotBody.scrollHeight;
 
       }
@@ -119,27 +177,47 @@ function sendMsg() {
 
 function askOtherFn(allData) {
   if (allData[1].answer.trim() != '') {
-    chatbotBody.innerHTML +=
-      '<div class="botResponse">' +
-      '你是否想问：\"' + allData[1].question + '\"?<br/>' + allData[1].answer +
-      '</div>';
+    new Bubble(
+      '你是否想问：\"' + allData[1].question + '\"?<br/>' + allData[1].answer ,
+      'botResponse'
+    )
+
+    // chatbotBody.innerHTML +=
+    //   '<div class="botResponse">' +
+    //   '你是否想问：\"' + allData[1].question + '\"?<br/>' + allData[1].answer +
+    //   '</div>';
     chatbotBody.scrollTop = chatbotBody.scrollHeight;
   }
   if (allData[2].answer.trim() != '') {
-    chatbotBody.innerHTML +=
-      '<div class="botResponse">' +
+    new Bubble(
       '你是否想问：\"' + allData[2].question + '\"?<br/>' + allData[2].answer +
-      '</div>';
+      'botResponse'
+    )
+
+    // chatbotBody.innerHTML +=
+    //   '<div class="botResponse">' +
+    //   '你是否想问：\"' + allData[2].question + '\"?<br/>' + allData[2].answer +
+    //   '</div>';
     chatbotBody.scrollTop = chatbotBody.scrollHeight;
   }
-  chatbotBody.innerHTML += 
-    '<div class="botResponse">' +
+
+  new Bubble(
     '这个问题智能小助手还无法回答哦，可以在'+
     '<a target="_blank" href="https://docs.qq.com/form/page/DQXZVUXZJcFdPalVI?_w_tencentdocx_form=1">这里(【腾讯文档】资助机器人问答反馈)<a/>'+
     '反馈你的问题,稍后会有工作人员解答,也可以加入我们的资助系统答疑.'+
     '<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=pvxuiMdtRaCsE4ZDNN5t15NhTQzmOqVo&jump_from=webapi">892402887' +
-    '<img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="资助答疑群-chatbot" title="资助答疑群-chatbot"></a>' +
-    '</div>';
+    '<img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="资助答疑群-chatbot" title="资助答疑群-chatbot"></a>' ,
+    'botResponse'
+  )
+
+  // chatbotBody.innerHTML += 
+  //   '<div class="botResponse">' +
+  //   '这个问题智能小助手还无法回答哦，可以在'+
+  //   '<a target="_blank" href="https://docs.qq.com/form/page/DQXZVUXZJcFdPalVI?_w_tencentdocx_form=1">这里(【腾讯文档】资助机器人问答反馈)<a/>'+
+  //   '反馈你的问题,稍后会有工作人员解答,也可以加入我们的资助系统答疑.'+
+  //   '<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=pvxuiMdtRaCsE4ZDNN5t15NhTQzmOqVo&jump_from=webapi">892402887' +
+  //   '<img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="资助答疑群-chatbot" title="资助答疑群-chatbot"></a>' +
+  //   '</div>';
   chatbotBody.scrollTop = chatbotBody.scrollHeight;
 }
 

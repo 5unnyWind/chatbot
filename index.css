@@ -104,7 +104,11 @@
   color: #fff;
   background-color: #0044e9;
 }
-
+/* 初始关键词 */
+#k1,#k2,#k3,#k4{
+  color: rgb(184, 184, 250);
+  cursor: pointer;
+}
 
 
 /* 底部 */
