@@ -2,12 +2,15 @@
 //   "https://www.fastmock.site/mock/9371d6330f8fc2f273cbfedf9beecd0a/chatbot/api/answer#!method=POST&queryParameters=%5B%5D&body=%7B%22uid%22%3A%22sdhasxuasabjxbzcdufscjz%22%2C+%22question%22%3A+%22%E6%88%91%E6%98%AF%E8%B0%81%EF%BC%9F%22%7D&headers=%5B%5D";
 
 const chatbotWrap = document.querySelector(".chatbotWrap");
+const welcomeBox = document.querySelector(".welcomeBox");
 chatbotWrap.addEventListener("click", openChatbot);
+welcomeBox.addEventListener("click", openChatbot);
 
 // 展开
 function openChatbot() {
   window.parent.postMessage('open', "*");   
   chatbotWrap.classList.remove("chatFold");
+  welcomeBox.classList.add("hide")
 }
 
 document

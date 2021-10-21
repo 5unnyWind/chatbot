@@ -52,15 +52,3 @@
 </html>
 
 
-<!-- 
-  用iframe引入：
-    <iframe src="http://sunnywind.3vfree.net/xszzbot_pc/" frameborder="0" width="100px"
-        height="100px" id="botIframe"
-        onload="
-        const botIframe=document.getElementById('botIframe');
-        const iframeWin= botIframe.contentWindow;
-        window.addEventListener('message', (event)=> 
-        {if(event.data==='open'){botIframe.width='350px';botIframe.height='620px'};if(event.data==='close'){botIframe.width='100px';botIframe.height='100px'}}, false);  "
-        style="position: fixed;right: 0;bottom: 0;z-index: 99;">
-    </iframe>
--->

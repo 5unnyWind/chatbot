@@ -15,24 +15,33 @@
 }
 
 /* “点击我，没准能为你解决问题” 框*/
-.welcomeBox{
+.container{
+  position: fixed;
+  bottom: 90px;
+  right: 60px;
+  cursor: pointer;
+}
 
+.welcomeBox img{
+  width: 180px;
+  opacity: .9;
+    
 }
 
 /* 未展开状态 */
 .chatFold {
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   border-radius: 15px;
   /* background-color: #0044e9; */
   position: fixed;
   bottom: 20px;
   right: 20px;
   cursor:pointer ;
-  background: image('./机器人-03.png');
-  background-image: url('./机器人-03.png');
+  /* background: image('./机器人-03.png') ; */
+  background-image: url('./机器人-03.png') ;
   background-position: center;
-  background-size: 90px 90px;
+  background-size: 120px 120px;
   background-repeat: no-repeat;
   box-shadow: none;
 }
@@ -152,4 +161,9 @@
 }
 .chatbotFoot button:hover{
   background-color: #2b69fa;
+}
+
+
+.hide{
+  display: none;
 }
