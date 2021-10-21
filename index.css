@@ -14,6 +14,11 @@
   transform: scale(.8);
 }
 
+/* “点击我，没准能为你解决问题” 框*/
+.welcomeBox{
+
+}
+
 /* 未展开状态 */
 .chatFold {
   width: 90px;

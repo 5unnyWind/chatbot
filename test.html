@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgba(red, green, blue, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>PC端 (<a href="http://xszz.ncu.edu.cn/Web/#/">http://xszz.ncu.edu.cn/Web/#/</a>)引入学生资助答疑机器人iframe代码：</h1>
+    <p>
+        &lt;iframe src=&quot;http://sunnywind.3vfree.net/xszzbot_pc/&quot; frameborder=&quot;0&quot; width=&quot;100px&quot;
+        height=&quot;100px&quot; id=&quot;botIframe&quot;
+        onload=&quot;
+        const botIframe=document.getElementById('botIframe');
+        const iframeWin= botIframe.contentWindow;
+        window.addEventListener('message', (event)=&gt; 
+        {if(event.data==='open'){botIframe.width='350px';botIframe.height='620px'};if(event.data==='close'){botIframe.width='100px';botIframe.height='100px'}}, false);  &quot;
+        style=&quot;position: fixed;right: 0;bottom: 0;z-index: 99;&quot;&gt;
+    &lt;/iframe&gt;
+
+    </p>
+    <h1>PE端(企业微信工作台)引入学生资助答疑机器人：</h1>
+    <p>在如图所示位置新增一个图标入口，指向<a href="http://sunnywind.3vfree.net/xszzbot_pe/">http://sunnywind.3vfree.net/xszzbot_pe/</a></p>
+    <img src="./c71e61734bf58b75c8b8a048445eb54.jpg" alt="">
+</body>
+
+</html>

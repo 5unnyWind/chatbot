@@ -1,0 +1,309 @@
+
+/* 展开状态 */
+.chatbotWrap {
+  width: 93.333vw;
+  height: 173.333vw;
+  position: fixed;
+  bottom: 5.333vw;
+  right: 5.333vw;
+  /* background-color: #eaeef3; */
+  border-radius: 2.667vw;
+  transition: all 0.4s;
+  box-shadow: 0 1.067vw 4.267vw rgb(0 0 0 / 25%);
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+/* 未展开状态 */
+.chatFold {
+  width: 24vw;
+  height: 24vw;
+  border-radius: 4vw;
+  /* background-color: #0044e9; */
+  position: fixed;
+  bottom: 5.333vw;
+  right: 5.333vw;
+  cursor:pointer ;
+  background: image('./机器人-03.png');
+  background-image: url('./机器人-03.png');
+  background-position: center;
+  background-size: 24vw 24vw;
+  background-repeat: no-repeat;
+  box-shadow: none;
+}
+/* .chatFold::after{
+  content: '答疑机器人';
+  color: white;
+  line-height: 24vw;
+  text-align: center;  
+  
+} */
+
+
+
+.chatFold div {
+  display: none;
+}
+
+/* 顶部 */
+.chatbotHead {
+  width: 93.333vw;
+  height: 26.667vw;
+  background-color: #ffffff;
+  border-top-left-radius: 2.667vw;
+  border-top-right-radius: 2.667vw;
+}
+
+.chatbotHead h2 {
+  line-height: 21.333vw;
+  text-align: center;
+}
+
+.closeChatBot {
+  position: absolute;
+  top: 2.667vw;
+  right: 2.667vw;
+  border: none;
+  background-color: #fff;
+  outline: none;
+  transform: scale(1.5, 1.2);
+  cursor: pointer;
+}
+
+/* 中部 */
+.chatbotBody {
+  width: 93.333vw;
+  height: 133.333vw;
+  background-color: #eaeef3;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+  overflow: auto;
+}
+
+.chatbotBody .botResponse {
+  /* height: 13.333vw; */
+  width: fit-content;
+  height: fit-content;
+  line-height: 8vw;
+  border-radius: 5.333vw 5.333vw 5.333vw 0vw;
+  margin: 4.267vw;
+  padding: 2.133vw 4.267vw;
+  background-color: #fff;
+  width: fit-content;
+}
+
+.chatbotBody .userAsk {
+  width: fit-content;
+  height: fit-content;
+  align-self: flex-end;
+  line-height: 8vw;
+  border-radius: 5.333vw 5.333vw 0vw 5.333vw;
+  margin: 4.267vw;
+  padding: 2.133vw 4.267vw;
+  color: #fff;
+  background-color: #0044e9;
+}
+/* 初始关键词 */
+#k1,#k2,#k3,#k4{
+  color: rgb(184, 184, 250);
+  cursor: pointer;
+}
+
+
+/* 底部 */
+.chatbotFoot {
+  width: 93.333vw;
+  height: 13.333vw;
+  background-color: #ffffff;
+  border-bottom-left-radius: 2.667vw;
+  border-bottom-right-radius: 2.667vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.chatbotFoot input {
+  outline: none;
+  border: none;
+  padding-left: 2.667vw;
+  width: 75%;
+  border-bottom-left-radius: 2.667vw;
+}
+
+.chatbotFoot .send {
+  width: 25%;
+}
+
+.chatbotFoot button {
+  border-bottom-right-radius: 2.667vw;
+  border: none;
+  outline: none;
+  background-color: #0044e9;
+  color: #fff;
+  justify-self: flex-end;
+  transition: all .3s;
+
+  cursor: pointer;
+}
+.chatbotFoot button:hover{
+  background-color: #2b69fa;
+}
+
+
+
+
+@media screen and (min-width:376px){
+  /* 展开状态 */
+.chatbotWrap {
+  width: 349.999px;
+  height: 649.999px;
+  position: fixed;
+  bottom: 19.999px;
+  right: 19.999px;
+  /* background-color: #eaeef3; */
+  border-radius: 10.001px;
+  transition: all 0.4s;
+  box-shadow: 0 4.001px 16.001px rgb(0 0 0 / 25%);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 未展开状态 */
+.chatFold {
+  width: 90px;
+  height: 90px;
+  border-radius: 15px;
+  /* background-color: #0044e9; */
+  position: fixed;
+  bottom: 19.999px;
+  right: 19.999px;
+  cursor:pointer ;
+  background: image('./机器人-03.png');
+  background-image: url('./机器人-03.png');
+  background-position: center;
+  background-size: 90px 90px;
+  background-repeat: no-repeat;
+  box-shadow: none;
+}
+/* .chatFold::after{
+  content: '答疑机器人';
+  color: white;
+  line-height: 90px;
+  text-align: center;  
+  
+} */
+
+
+
+.chatFold div {
+  display: none;
+}
+
+/* 顶部 */
+.chatbotHead {
+  width: 349.999px;
+  height: 100.001px;
+  background-color: #ffffff;
+  border-top-left-radius: 10.001px;
+  border-top-right-radius: 10.001px;
+}
+
+.chatbotHead h2 {
+  line-height: 79.999px;
+  text-align: center;
+}
+
+.closeChatBot {
+  position: absolute;
+  top: 10.001px;
+  right: 10.001px;
+  border: none;
+  background-color: #fff;
+  outline: none;
+  transform: scale(1.5, 1.2);
+  cursor: pointer;
+}
+
+/* 中部 */
+.chatbotBody {
+  width: 349.999px;
+  height: 499.999px;
+  background-color: #eaeef3;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+  overflow: auto;
+}
+
+.chatbotBody .botResponse {
+  /* height: 49.999px; */
+  width: fit-content;
+  height: fit-content;
+  line-height: 30px;
+  border-radius: 19.999px 19.999px 19.999px 0px;
+  margin: 16.001px;
+  padding: 7.999px 16.001px;
+  background-color: #fff;
+  width: fit-content;
+}
+
+.chatbotBody .userAsk {
+  width: fit-content;
+  height: fit-content;
+  align-self: flex-end;
+  line-height: 30px;
+  border-radius: 19.999px 19.999px 0px 19.999px;
+  margin: 16.001px;
+  padding: 7.999px 16.001px;
+  color: #fff;
+  background-color: #0044e9;
+}
+/* 初始关键词 */
+#k1,#k2,#k3,#k4{
+  color: rgb(184, 184, 250);
+  cursor: pointer;
+}
+
+
+/* 底部 */
+.chatbotFoot {
+  width: 349.999px;
+  height: 49.999px;
+  background-color: #ffffff;
+  border-bottom-left-radius: 10.001px;
+  border-bottom-right-radius: 10.001px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.chatbotFoot input {
+  outline: none;
+  border: none;
+  padding-left: 10.001px;
+  width: 75%;
+  border-bottom-left-radius: 10.001px;
+}
+
+.chatbotFoot .send {
+  width: 25%;
+}
+
+.chatbotFoot button {
+  border-bottom-right-radius: 10.001px;
+  border: none;
+  outline: none;
+  background-color: #0044e9;
+  color: #fff;
+  justify-self: flex-end;
+  transition: all .3s;
+
+  cursor: pointer;
+}
+.chatbotFoot button:hover{
+  background-color: #2b69fa;
+}
+
+}

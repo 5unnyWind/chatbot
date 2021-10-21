@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <iframe src="http://sunnywind.3vfree.net/xszzbot_pe/" 
+    frameborder="0" width="13.333vw"
+    height="13.333vw" id="botIframe"
+    onload="
+    const botIframe=document.getElementById('botIframe');
+    const iframeWin= botIframe.contentWindow;
+    window.addEventListener('message', (event)=> 
+    {if(event.data==='open'){botIframe.width='350px';botIframe.height='620px'};if(event.data==='close'){botIframe.width='100px';botIframe.height='100px'}}, false);  "
+    style="position: fixed;right: 0;bottom: 0;z-index: 99;">
+</iframe>
+    
+</body>
+</html>
