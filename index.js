@@ -22,6 +22,7 @@ function onCloseChatbot() {
   window.event ? (window.event.cancelBubble = true) : e.stopPropagation();
   chatbotWrap.classList.add("chatFold");
   window.parent.postMessage('close', "*");   
+  welcomeBox.classList.remove('hide')
 }
 
 //点击发送按钮或按下回车

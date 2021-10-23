@@ -21,11 +21,13 @@
   right: 60px;
   cursor: pointer;
 }
-
+.welcomeBox{
+  transform: scale(1);
+  transition: all .7s;
+}
 .welcomeBox img{
   width: 180px;
-  opacity: .9;
-    
+  animation: flashing .7s alternate-reverse infinite;
 }
 
 /* 未展开状态 */
@@ -165,5 +167,15 @@
 
 
 .hide{
-  display: none;
+  transform: scale(.1);
+  transition: all .5s;
+}
+
+@keyframes flashing {
+  0%{
+    opacity: .7;
+  }
+  100%{
+    opacity: 1;
+  }
 }
