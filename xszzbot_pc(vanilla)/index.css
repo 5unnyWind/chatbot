@@ -1,3 +1,5 @@
+
+
 /* 展开状态 */
 .chatbotWrap {
   width: 350px;
@@ -19,7 +21,7 @@
   position: fixed;
   bottom: 90px;
   right: 60px;
-  cursor: pointer;
+
 }
 .welcomeBox{
   transform: scale(1);
@@ -28,6 +30,7 @@
 .welcomeBox img{
   width: 180px;
   animation: flashing .7s alternate-reverse infinite;
+  cursor: pointer;
 }
 
 /* 未展开状态 */
@@ -65,7 +68,8 @@
 .chatbotHead {
   width: 350px;
   height: 100px;
-  background-color: #ffffff;
+  color: #fff;
+  background-color: #F39987;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
@@ -80,7 +84,8 @@
   top: 10px;
   right: 10px;
   border: none;
-  background-color: #fff;
+  background-color: #F39987;
+  color: #fff;
   outline: none;
   transform: scale(1.5, 1.2);
   cursor: pointer;
@@ -118,12 +123,13 @@
   margin: 16px;
   padding: 8px 16px;
   color: #fff;
-  background-color: #0044e9;
+  background-color: #F39987;
 }
 /* 初始关键词 */
 #k1,#k2,#k3,#k4{
-  color: rgb(184, 184, 250);
+  color: cornflowerblue;
   cursor: pointer;
+  text-decoration: underline;
 }
 
 
@@ -154,7 +160,7 @@
   border-bottom-right-radius: 10px;
   border: none;
   outline: none;
-  background-color: #0044e9;
+  background-color: #EA7E69;
   color: #fff;
   justify-self: flex-end;
   transition: all .3s;
@@ -162,7 +168,7 @@
   cursor: pointer;
 }
 .chatbotFoot button:hover{
-  background-color: #2b69fa;
+  background-color: #f5694d;
 }
 
 
@@ -173,9 +179,10 @@
 
 @keyframes flashing {
   0%{
-    opacity: .7;
+    opacity: .2;
   }
   100%{
     opacity: 1;
   }
 }
+

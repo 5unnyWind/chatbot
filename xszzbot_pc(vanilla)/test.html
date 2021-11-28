@@ -16,14 +16,13 @@
 <body>
     <h1>PC端 (<a href="http://xszz.ncu.edu.cn/Web/#/">http://xszz.ncu.edu.cn/Web/#/</a>)引入学生资助答疑机器人iframe代码：</h1>
     <p>
-        &lt;iframe src=&quot;http://sunnywind.3vfree.net/xszzbot_pc/&quot; frameborder=&quot;0&quot;
-        width=&quot;100px&quot;
-        height=&quot;100px&quot; id=&quot;botIframe&quot;
+        &lt;iframe src=&quot;http://sunnywind.3vfree.net/xszzbot_pc/&quot;
+        frameborder=&quot;0&quot; width=&quot;240px&quot; height=&quot;250px&quot; id=&quot;botIframe&quot;
         onload=&quot;
-        const botIframe=document.getElementById('botIframe');
+        const botIframe=document.getElementById(&#x27;botIframe&#x27;);
         const iframeWin= botIframe.contentWindow;
-        window.addEventListener('message', (event)=&gt;
-        {if(event.data==='open'){botIframe.width='350px';botIframe.height='620px'};if(event.data==='close'){botIframe.width='100px';botIframe.height='100px'}},
+        window.addEventListener(&#x27;message&#x27;, (event)=&gt;
+        {if(event.data===&#x27;open&#x27;){botIframe.width=&#x27;350px&#x27;;botIframe.height=&#x27;620px&#x27;};if(event.data===&#x27;close&#x27;){botIframe.width=&#x27;240px&#x27;;botIframe.height=&#x27;250px&#x27;}},
         false); &quot;
         style=&quot;position: fixed;right: 0;bottom: 0;z-index: 99;&quot;&gt;
         &lt;/iframe&gt;
@@ -42,7 +41,8 @@
     {if(event.data==='open'){botIframe.width='350px';botIframe.height='620px'};if(event.data==='close'){botIframe.width='100px';botIframe.height='100px'}}, false);  "
         style="position: fixed;right: 0;bottom: 0;z-index: 99;">
     </iframe> -->
-    <iframe src="https://chatbot-7gh9tvhy227eff32-1305580547.tcloudbaseapp.com/" frameborder="0" width="240px" height="250px" id="botIframe"
+    <iframe src="https://chatbot-7gh9tvhy227eff32-1305580547.tcloudbaseapp.com/" frameborder="0" width="240px"
+        height="250px" id="botIframe"
         onload="
     const botIframe=document.getElementById('botIframe');
     const iframeWin= botIframe.contentWindow;
@@ -58,13 +58,5 @@
 
 <!-- 
   用iframe引入：
-    <iframe src="http://sunnywind.3vfree.net/xszzbot_pc/" frameborder="0" width="100px"
-        height="100px" id="botIframe"
-        onload="
-        const botIframe=document.getElementById('botIframe');
-        const iframeWin= botIframe.contentWindow;
-        window.addEventListener('message', (event)=> 
-        {if(event.data==='open'){botIframe.width='350px';botIframe.height='620px'};if(event.data==='close'){botIframe.width='100px';botIframe.height='100px'}}, false);  "
-        style="position: fixed;right: 0;bottom: 0;z-index: 99;">
-    </iframe>
+<iframe src="http://sunnywind.3vfree.net/xszzbot_pc/" frameborder="0" width="240px" height="250px" id="botIframe" onload=" const botIframe=document.getElementById('botIframe'); const iframeWin= botIframe.contentWindow; window.addEventListener('message', (event)=> {if(event.data==='open'){botIframe.width='350px';botIframe.height='620px'};if(event.data==='close'){botIframe.width='240px';botIframe.height='250px'}}, false); " style="position: fixed;right: 0;bottom: 0;z-index: 99;"> </iframe>
 -->
