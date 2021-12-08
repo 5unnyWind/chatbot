@@ -21,7 +21,7 @@ const App = () => {
     document
       .querySelector(".closeChatBot")
       .addEventListener("click", onCloseChatbot);
-``
+
     //关闭
     function onCloseChatbot() {
       window.event ? (window.event.cancelBubble = true) : e.stopPropagation();
@@ -177,45 +177,51 @@ const App = () => {
           console.err(err);
         });
 
-
-
       input.value = "";
     }
 
     function askOtherFn(allData) {
-      if (allData[1].answer.trim() != '') {
-        new Bubble(
-          '你是否想问：\"' + allData[1].question + '\"?<br/>' + allData[1].answer,
-          'botResponse'
-        )
-
-        // chatbotBody.innerHTML +=
-        //   '<div class="botResponse">' +
-        //   '你是否想问：\"' + allData[1].question + '\"?<br/>' + allData[1].answer +
-        //   '</div>';
-        chatbotBody.scrollTop = chatbotBody.scrollHeight;
-      }
-      if (allData[2].answer.trim() != '') {
-        new Bubble(
-          '你是否想问：\"' + allData[2].question + '\"?<br/>' + allData[2].answer +
-          'botResponse'
-        )
-
-        // chatbotBody.innerHTML +=
-        //   '<div class="botResponse">' +
-        //   '你是否想问：\"' + allData[2].question + '\"?<br/>' + allData[2].answer +
-        //   '</div>';
-        chatbotBody.scrollTop = chatbotBody.scrollHeight;
-      }
-
+      const otherQuestions = allData.map(q => {
+        return (`<p class='other${q.rank} '>${q.rank}.${q.question}</p>`)
+      })
       new Bubble(
-        '这个问题智能小助手还无法回答哦，可以在' +
-        '<a target="_blank" href="https://docs.qq.com/form/page/DQXZVUXZJcFdPalVI?_w_tencentdocx_form=1">这里(【腾讯文档】资助机器人问答反馈)<a/>' +
-        '反馈你的问题,稍后会有工作人员解答,也可以加入我们的资助系统答疑.' +
-        '<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=pvxuiMdtRaCsE4ZDNN5t15NhTQzmOqVo&jump_from=webapi">892402887' +
-        '<img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="资助答疑群-chatbot" title="资助答疑群-chatbot"></a>',
+        `你是否想问:<div>${otherQuestions.join('')}</div>`,
         'botResponse'
       )
+      chatbotBody.scrollTop = chatbotBody.scrollHeight;
+      const other1 = document.getElementsByClassName('other1')
+      const other2 = document.getElementsByClassName('other2')
+      const other3 = document.getElementsByClassName('other3')
+      const other4 = document.getElementsByClassName('other4')
+      other1[other1.length-1].onclick = () => {sendMsg(allData[0].question);other1[other1.length-1].style.color='gray'}
+      other2[other2.length-1].onclick = () => {sendMsg(allData[1].question);other2[other2.length-1].style.color='gray'}
+      other3[other3.length-1].onclick = () => {sendMsg(allData[2].question);other3[other3.length-1].style.color='gray'}
+      other4[other4.length-1].onclick = () => {sendMsg(allData[3].question);other4[other4.length-1].style.color='gray'}
+      // if (allData[1].answer.trim() != '') {
+
+
+      // }
+      // if (allData[2].answer.trim() != '') {
+      //   new Bubble(
+      //     '你是否想问：\"' + allData[2].question + '\"?<br/>' + allData[2].answer +
+      //     'botResponse'
+      //   )
+
+      //   // chatbotBody.innerHTML +=
+      //   //   '<div class="botResponse">' +
+      //   //   '你是否想问：\"' + allData[2].question + '\"?<br/>' + allData[2].answer +
+      //   //   '</div>';
+      //   chatbotBody.scrollTop = chatbotBody.scrollHeight;
+      // }
+
+      // new Bubble(
+      //   '这个问题智能小助手还无法回答哦，可以在' +
+      //   '<a target="_blank" href="https://docs.qq.com/form/page/DQXZVUXZJcFdPalVI?_w_tencentdocx_form=1">这里(【腾讯文档】资助机器人问答反馈)<a/>' +
+      //   '反馈你的问题,稍后会有工作人员解答,也可以加入我们的资助系统答疑.' +
+      //   '<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=pvxuiMdtRaCsE4ZDNN5t15NhTQzmOqVo&jump_from=webapi">892402887' +
+      //   '<img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="资助答疑群-chatbot" title="资助答疑群-chatbot"></a>',
+      //   'botResponse'
+      // )
 
       // chatbotBody.innerHTML += 
       //   '<div class="botResponse">' +

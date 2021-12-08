@@ -44,7 +44,7 @@
   right: 20px;
   cursor:pointer ;
   /* background: image('./机器人-03.png') ; */
-  background-image: url('./机器人-03.png') ;
+  background-image: url('/chatbot03.png') ;
   background-position: center;
   background-size: 120px 120px;
   background-repeat: no-repeat;
@@ -171,6 +171,13 @@
   background-color: #f5694d;
 }
 
+.other1,
+.other2,
+.other3,
+.other4{
+  color: #6495ed;
+  
+}
 
 .hide{
   transform: scale(.1);
