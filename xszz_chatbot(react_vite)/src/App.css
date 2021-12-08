@@ -179,6 +179,11 @@
   
 }
 
+.link{
+  color: #6495ed;
+
+}
+
 .hide{
   transform: scale(.1);
   transition: all .5s;

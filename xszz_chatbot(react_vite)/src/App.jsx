@@ -185,10 +185,15 @@ const App = () => {
         return (`<p class='other${q.rank} '>${q.rank}.${q.question}</p>`)
       })
       new Bubble(
-        `你是否想问:<div>${otherQuestions.join('')}</div>`,
+        `你是否想问:<div>${otherQuestions.join('')}</div>
+        <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=pvxuiMdtRaCsE4ZDNN5t15NhTQzmOqVo&jump_from=webapi" class='link'>
+        以上都没有？点我进入人工客服
+        </a>
+        `,
         'botResponse'
       )
       chatbotBody.scrollTop = chatbotBody.scrollHeight;
+
       const other1 = document.getElementsByClassName('other1')
       const other2 = document.getElementsByClassName('other2')
       const other3 = document.getElementsByClassName('other3')
