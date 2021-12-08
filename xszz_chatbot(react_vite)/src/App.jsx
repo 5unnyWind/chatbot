@@ -111,7 +111,7 @@ const App = () => {
 
 
       axios
-        .get('https://ncuqa-api.nspyf.top/search/zzzx?q=' + msg)
+        .get('https://ncuqa-api.ncuos.com/search/zzzx?q=' + msg)
         .then((result) => {
           const answer = result.data.data[0].answer;
           const question = result.data.data[0].question;
