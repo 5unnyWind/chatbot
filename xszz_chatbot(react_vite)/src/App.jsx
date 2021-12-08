@@ -87,28 +87,6 @@ const App = () => {
       // chatbotBody.innerHTML += '<div class="userAsk">' + msg + '</div>';
       chatbotBody.scrollTop = chatbotBody.scrollHeight;
 
-      // 旧接口
-      // axios
-      //   .get('https://service-79wvnzqk-1256880247.gz.apigw.tencentcs.com/release/yuyan_version?ask=' + msg)
-      //   .then((result) => {
-      //     console.log(result);
-      //     const answer = result.data.keywords;
-      //     if (answer === 'I dont know') {
-      //       chatbotBody.innerHTML += '<div class="botResponse">' +
-      //         '这个问题智能小助手还无法回答哦，可以添加群艾特管理员提问~ 资助系统答疑群号 ' +
-      //         '<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=pvxuiMdtRaCsE4ZDNN5t15NhTQzmOqVo&jump_from=webapi">892402887' +
-      //         '<img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="资助答疑群-chatbot" title="资助答疑群-chatbot"></a>' +
-      //         '</div>';
-      //       chatbotBody.scrollTop = chatbotBody.scrollHeight;
-      //       return false;
-      //     }
-      //     chatbotBody.innerHTML += '<div class="botResponse">' + answer + '</div>';
-      //     chatbotBody.scrollTop = chatbotBody.scrollHeight;
-      //   })
-      //   .catch((err) => {
-      //     console.err(err);
-      //   });
-
 
       axios
         .get('https://ncuqa-api.ncuos.com/search/zzzx?q=' + msg)
@@ -125,15 +103,6 @@ const App = () => {
               '<img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="资助答疑群-chatbot" title="资助答疑群-chatbot"></a>',
               'botResponse'
             )
-
-            // chatbotBody.innerHTML += 
-            // '<div class="botResponse">' +
-            // '这个问题智能小助手还无法回答哦，可以在'+
-            // '<a target="_blank" href="https://docs.qq.com/form/page/DQXZVUXZJcFdPalVI?_w_tencentdocx_form=1">这里(【腾讯文档】资助机器人问答反馈)<a/>'+
-            // '反馈你的问题,稍后会有工作人员解答,也可以加入我们的资助系统答疑.'+
-            // '<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=pvxuiMdtRaCsE4ZDNN5t15NhTQzmOqVo&jump_from=webapi">892402887' +
-            // '<img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="资助答疑群-chatbot" title="资助答疑群-chatbot"></a>' +
-            // '</div>';
             chatbotBody.scrollTop = chatbotBody.scrollHeight;
             return false;
           }
@@ -145,11 +114,7 @@ const App = () => {
               '<br/><a class="askOther" style="color: cornflowerblue;text-decoration: underline;cursor: pointer;">我想问其他</a>',
               'botResponse'
             )
-            // chatbotBody.innerHTML +=
-            //   '<div class="botResponse">' +
-            //   answer +
-            //   '<br/><a class="askOther" style="color: cornflowerblue;text-decoration: underline;cursor: pointer;">我想问其他</a>'+
-            //   '</div>';
+
             chatbotBody.scrollTop = chatbotBody.scrollHeight;
           } else {
             new Bubble(
@@ -158,11 +123,6 @@ const App = () => {
               'botResponse'
             )
 
-            // chatbotBody.innerHTML +=
-            //   '<div class="botResponse">' +
-            //   '你是否想问：\"' + question + '\"?<br/>' + answer +
-            //   '<br/><a class="askOther" style="color: cornflowerblue;text-decoration: underline;cursor: pointer;">我想问其他</a>'+
-            //   '</div>';
             chatbotBody.scrollTop = chatbotBody.scrollHeight;
 
           }
@@ -182,7 +142,7 @@ const App = () => {
 
     function askOtherFn(allData) {
       const otherQuestions = allData.map(q => {
-        return (`<p class='other${q.rank} '>${q.rank}.${q.question}</p>`)
+        return (`<p class='other${q.rank} link '>${q.rank}.${q.question}</p>`)
       })
       new Bubble(
         `你是否想问:<div>${otherQuestions.join('')}</div>
