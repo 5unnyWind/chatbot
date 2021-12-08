@@ -221,7 +221,7 @@ const App = () => {
 
 
           <div className="chatbotHead">
-            <h2>学生资助政策答疑机器人</h2>
+            <h2>AI机器人———助宝</h2>
             <button className="closeChatBot">X</button>
           </div>
 
