@@ -1,5 +1,3 @@
-
-
 /* 展开状态 */
 .chatbotWrap {
   width: 350px;
@@ -17,39 +15,26 @@
 }
 
 /* “点击我，没准能为你解决问题” 框*/
-.container{
+.container {
   position: fixed;
   bottom: 90px;
   right: 60px;
 
 }
-.welcomeBox{
+
+.welcomeBox {
   transform: scale(1);
   transition: all .7s;
 }
-.welcomeBox img{
+
+.welcomeBox img {
   width: 180px;
   animation: flashing .7s alternate-reverse infinite;
   cursor: pointer;
 }
 
-/* 未展开状态 */
-.chatFold {
-  width: 100px;
-  height: 100px;
-  border-radius: 15px;
-  /* background-color: #0044e9; */
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  cursor:pointer ;
-  /* background: image('./机器人-03.png') ; */
-  background-image: url('/chatbot03.png') ;
-  background-position: center;
-  background-size: 120px 120px;
-  background-repeat: no-repeat;
-  box-shadow: none;
-}
+
+
 /* .chatFold::after{
   content: '答疑机器人';
   color: white;
@@ -125,8 +110,9 @@
   color: #fff;
   background-color: #F39987;
 }
+
 /* 初始关键词 */
-#k1,#k2,#k3,#k4{
+#k1, #k2, #k3, #k4 {
   color: cornflowerblue;
   cursor: pointer;
   text-decoration: underline;
@@ -167,27 +153,113 @@
 
   cursor: pointer;
 }
-.chatbotFoot button:hover{
+
+.chatbotFoot button:hover {
   background-color: #f5694d;
 }
 
 
-.link{
+.link {
   color: #6495ed;
 
 }
 
-.hide{
+.hide {
   transform: scale(.1);
   transition: all .5s;
 }
 
+@media screen and (min-width:1000px) {
+  .chatbotWrap {
+    width: 753px;
+    height: 466px;
+    transform: scale(1);
+  }
+
+  .chatbotHead {
+    width: 753px;
+    height: 40px;
+  }
+
+  .chatbotHead h2 {
+    font-size: 12px;
+    line-height: 20px;
+    text-align: left;
+    margin-left: 23px;
+  }
+
+  .chatbotBody {
+    width: 559px;
+    height: 376px;
+  }
+
+  .chatbotFoot {
+    width: 559px;
+  }
+
+  .bodySide {
+    width: 194px;
+    height: 426px;
+    background-color: #ffffff;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    border-bottom-right-radius: 10px;
+    border-left: #eee 1.5px solid;
+  }
+
+  .chatbotFoot {
+    border-bottom-right-radius: 0px;
+  }
+
+  .chatbotFoot button {
+    border-radius: 10px;
+    transform: scale(.6);
+    font-size: 20px;
+  }
+
+  .box1, .box2 {
+    margin-left: 10px;
+  }
+
+  .list1, .list2 {
+    width: 164px;
+    border: 1px solid #EE8F7F;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+  }
+
+  .list1 p, .list2 p {
+    margin-left: 5px;
+    font-size: 10px;
+  }
+}
+
 @keyframes flashing {
-  0%{
+  0% {
     opacity: .2;
   }
-  100%{
+
+  100% {
     opacity: 1;
   }
 }
 
+/* 未展开状态 ,置底*/
+.chatFold {
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+  /* background-color: #0044e9; */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  /* background: image('./机器人-03.png') ; */
+  background-image: url('/chatbot03.png');
+  background-position: center;
+  background-size: 120px 120px;
+  background-repeat: no-repeat;
+  box-shadow: none;
+}

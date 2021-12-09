@@ -1,8 +1,44 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import './App.css'
+import { useMedia } from 'react-media';
+
+
 
 const App = () => {
+
+  const GLOBAL_MEDIA_QUERIES = {
+    small: "(max-width: 599px)",
+    medium: "(min-width: 600px) and (max-width: 1199px)",
+    large: "(min-width: 1200px)"
+  };
+  const matches = useMedia({ queries: GLOBAL_MEDIA_QUERIES });
+
+  const type = matches.large ? 'pc' : 'pe';
+  const rederBodySide = () => {
+    return (
+      <div className="bodySide">
+        <div className="box1">
+          <p>公告</p>
+          <div className="list1 link">
+            <p>2021助贷政策</p>
+            <p>2021助贷政策</p>
+            <p>2021助贷政策</p>
+            <p>2021助贷政策</p>
+            <p>2021助贷政策</p>
+          </div>
+        </div>
+        <div className="box2">
+          <p>常见问题</p>
+          <div className="list2 link">
+            <p>你好吗?</p>
+            <p>吃了吗?</p>
+            <p>睡了吗?</p>
+          </div>
+        </div>
+      </div>
+    )
+  }
   // const url =
   //   "https://www.fastmock.site/mock/9371d6330f8fc2f273cbfedf9beecd0a/chatbot/api/answer#!method=POST&queryParameters=%5B%5D&body=%7B%22uid%22%3A%22sdhasxuasabjxbzcdufscjz%22%2C+%22question%22%3A+%22%E6%88%91%E6%98%AF%E8%B0%81%EF%BC%9F%22%7D&headers=%5B%5D";
   useEffect(() => {
@@ -158,10 +194,10 @@ const App = () => {
       const other2 = document.getElementsByClassName('other2')
       const other3 = document.getElementsByClassName('other3')
       const other4 = document.getElementsByClassName('other4')
-      other1[other1.length-1].onclick = () => {sendMsg(allData[0].question);other1[other1.length-1].style.color='gray'}
-      other2[other2.length-1].onclick = () => {sendMsg(allData[1].question);other2[other2.length-1].style.color='gray'}
-      other3[other3.length-1].onclick = () => {sendMsg(allData[2].question);other3[other3.length-1].style.color='gray'}
-      other4[other4.length-1].onclick = () => {sendMsg(allData[3].question);other4[other4.length-1].style.color='gray'}
+      other1[other1.length - 1].onclick = () => { sendMsg(allData[0].question); other1[other1.length - 1].style.color = 'gray' }
+      other2[other2.length - 1].onclick = () => { sendMsg(allData[1].question); other2[other2.length - 1].style.color = 'gray' }
+      other3[other3.length - 1].onclick = () => { sendMsg(allData[2].question); other3[other3.length - 1].style.color = 'gray' }
+      other4[other4.length - 1].onclick = () => { sendMsg(allData[3].question); other4[other4.length - 1].style.color = 'gray' }
       // if (allData[1].answer.trim() != '') {
 
 
@@ -237,6 +273,7 @@ const App = () => {
             {/* <!-- <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=pvxuiMdtRaCsE4ZDNN5t15NhTQzmOqVo&jump_from=webapi"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="资助答疑群-chatbot" title="资助答疑群-chatbot"></a> --> */}
           </div>
 
+          {type == 'pc' && rederBodySide()}
           <div className="chatbotFoot">
             <input type="text" className="userInput" placeholder=" 请输入" />
             <button className="send">发送</button>
